@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will Interview — Sarthi Estate and Legacy Partners</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#1a3a5c;--navy-light:#244d7a;--navy-dark:#122840;
+  --gold:#c9a227;--gold-light:#e8c35a;--gold-pale:#fdf8ec;
+  --white:#ffffff;--off-white:#f8f7f4;--border:#ddd8cc;
+  --text:#1a1a1a;--text-muted:#6b6560;
+  --success:#2d7d4e;--success-bg:#eaf4ee;
+  --warning:#b45309;--warning-bg:#fef3e2;
+  --danger:#c0392b;--danger-bg:#fdf0ee;--input-bg:#fcfbf9;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--text);min-height:100vh;font-size:14px;}
+.app-header{background:var(--navy);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:3px solid var(--gold);}
+.firm-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--white);}
+.tool-badge{font-size:11px;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-top:2px;}
+.header-right{text-align:right;font-size:11px;color:rgba(255,255,255,0.5);}
+.header-client-id{font-size:12px;color:var(--gold-light);font-weight:500;margin-top:2px;}
+.progress-wrap{background:var(--navy-dark);padding:0 32px;overflow-x:auto;}
+.progress-steps{display:flex;min-width:max-content;}
+.prog-step{padding:11px 14px;font-size:11px;font-weight:500;color:rgba(255,255,255,0.35);letter-spacing:0.5px;text-transform:uppercase;border-bottom:3px solid transparent;white-space:nowrap;}
+.prog-step.done{color:var(--gold-light);border-bottom-color:var(--gold-light);opacity:0.6;}
+.prog-step.active{color:var(--gold);border-bottom-color:var(--gold);}
+.main{max-width:960px;margin:0 auto;padding:28px 24px 80px;}
+.section{display:none;}.section.active{display:block;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--navy);margin-bottom:4px;}
+.section-desc{font-size:13px;color:var(--text-muted);margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid var(--border);line-height:1.6;}
+.card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:20px 24px;margin-bottom:16px;}
+.card-title{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:0.8px;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;}
+@media(max-width:640px){.g2,.g3,.g4{grid-template-columns:1fr 1fr;}.main{padding:20px 16px 80px;}}
+@media(max-width:420px){.g2,.g3,.g4{grid-template-columns:1fr;}}
+.field{margin-bottom:12px;}.field:last-child{margin-bottom:0;}
+.field label{display:block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-muted);margin-bottom:4px;}
+.field label .req{color:var(--danger);}
+input[type=text],input[type=tel],input[type=email],input[type=date],input[type=number],textarea,select{width:100%;background:var(--input-bg);border:1px solid var(--border);border-radius:5px;padding:8px 11px;font-size:13px;font-family:'DM Sans',sans-serif;color:var(--text);outline:none;transition:border-color 0.15s;}
+input:focus,textarea:focus,select:focus{border-color:var(--navy);background:var(--white);}
+textarea{resize:vertical;min-height:65px;line-height:1.6;}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236b6560'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 11px center;padding-right:30px;}
+.item-block{background:var(--off-white);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:6px;padding:16px 18px;margin-bottom:12px;position:relative;}
+.item-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.item-num{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.8px;color:var(--navy);background:rgba(26,58,92,0.08);padding:3px 10px;border-radius:20px;}
+.remove-btn{font-size:11px;color:var(--danger);background:none;border:1px solid rgba(192,57,43,0.3);border-radius:4px;padding:3px 10px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.add-btn{width:100%;padding:8px;border:1.5px dashed var(--border);border-radius:6px;background:none;color:var(--text-muted);font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;margin-top:4px;transition:all 0.15s;}
+.add-btn:hover{border-color:var(--navy);color:var(--navy);}
+.checklist-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(min-width:640px){.checklist-grid{grid-template-columns:1fr 1fr 1fr;}}
+.checklist-item{display:flex;align-items:center;justify-content:space-between;background:var(--off-white);border:1px solid var(--border);border-radius:8px;padding:12px 14px;cursor:pointer;transition:all 0.15s;user-select:none;}
+.checklist-item:hover{border-color:var(--navy);}
+.checklist-item.yes{background:var(--success-bg);border-color:var(--success);}
+.checklist-item.no{background:#f9f9f9;border-color:#ccc;opacity:0.7;}
+.checklist-label{font-size:13px;font-weight:500;color:var(--text);}
+.checklist-item.yes .checklist-label{color:var(--success);}
+.toggle-btns{display:flex;gap:4px;flex-shrink:0;margin-left:8px;}
+.toggle-btn{padding:3px 10px;border-radius:4px;border:1px solid var(--border);font-size:11px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text-muted);}
+.toggle-btn.yes-active{background:var(--success);border-color:var(--success);color:white;}
+.toggle-btn.no-active{background:#888;border-color:#888;color:white;}
+.asset-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;padding:12px 14px;background:var(--white);border:1px solid var(--border);border-radius:8px;}
+.asset-tab{padding:5px 14px;border-radius:4px;border:1px solid var(--border);font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;background:var(--off-white);color:var(--text-muted);transition:all 0.15s;}
+.asset-tab.active{background:var(--navy);border-color:var(--navy);color:var(--white);}
+.asset-section{display:none;}.asset-section.active{display:block;}
+.nav{display:flex;align-items:center;justify-content:space-between;margin-top:26px;padding-top:20px;border-top:1px solid var(--border);gap:10px;flex-wrap:wrap;}
+.nav-left{display:flex;gap:8px;}.nav-right{display:flex;gap:8px;}
+.btn-back{padding:9px 20px;border:1px solid var(--border);border-radius:6px;background:var(--white);color:var(--text-muted);font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;}
+.btn-back:hover{border-color:var(--navy);color:var(--navy);}
+.btn-next{padding:9px 24px;border:none;border-radius:6px;background:var(--navy);color:var(--white);font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;}
+.btn-next:hover{background:var(--navy-light);}
+.btn-save{padding:9px 20px;border:1px solid var(--gold);border-radius:6px;background:var(--gold-pale);color:var(--navy);font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:500;}
+.btn-save:hover{background:var(--gold);}
+.btn-generate{padding:10px 26px;border:none;border-radius:6px;background:var(--gold);color:var(--navy-dark);font-size:13px;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;}
+.btn-generate:hover{background:var(--gold-light);}
+.summary-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px;padding-bottom:18px;border-bottom:2px solid var(--gold);flex-wrap:wrap;gap:12px;}
+.summary-firm{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--navy);}
+.summary-meta{font-size:12px;color:var(--text-muted);margin-top:4px;}
+.summary-actions{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
+.copy-btn{padding:8px 16px;border:1px solid var(--navy);border-radius:6px;background:var(--white);color:var(--navy);font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;}
+.save-sheet-btn{padding:8px 16px;border:none;border-radius:6px;background:#1a7340;color:white;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;}
+.save-sheet-btn:hover{background:#145c33;}
+.scorecard{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px;}
+@media(max-width:480px){.scorecard{grid-template-columns:1fr 1fr;}}
+.score-item{border-radius:8px;padding:12px 14px;border:1px solid var(--border);}
+.score-item.complete{background:var(--success-bg);border-color:#a8d5b5;}
+.score-item.partial{background:var(--warning-bg);border-color:#f0c040;}
+.score-item.empty{background:var(--danger-bg);border-color:#f5b8b2;}
+.score-section-name{font-size:12px;font-weight:500;color:var(--text);}
+.score-status{font-size:11px;margin-top:3px;}
+.score-item.complete .score-status{color:var(--success);}
+.score-item.partial .score-status{color:var(--warning);}
+.score-item.empty .score-status{color:var(--danger);}
+.pending-section{background:var(--warning-bg);border:1px solid #f0c040;border-radius:8px;padding:16px 20px;margin-bottom:16px;}
+.pending-title{font-size:13px;font-weight:500;color:var(--warning);margin-bottom:12px;}
+.pending-item{font-size:13px;color:var(--text);padding:5px 0;border-bottom:1px solid rgba(240,192,64,0.3);display:flex;gap:8px;}
+.pending-item:last-child{border-bottom:none;}
+.pending-dot{color:var(--warning);font-size:16px;line-height:1.3;}
+.wa-section{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:16px 20px;margin-bottom:16px;}
+.wa-title{font-size:13px;font-weight:500;color:#2e7d32;margin-bottom:10px;}
+.wa-message{font-size:13px;color:var(--text);line-height:1.7;background:white;border-radius:6px;padding:12px 14px;border:1px solid #c8e6c9;white-space:pre-wrap;}
+.wa-copy-btn{margin-top:10px;padding:7px 16px;border:1px solid #2e7d32;border-radius:4px;background:none;color:#2e7d32;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;}
+.wa-copy-btn:hover{background:#2e7d32;color:white;}
+.summary-section{background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:14px;}
+.summary-section-title{background:var(--navy);color:var(--gold);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:1px;padding:9px 18px;}
+.summary-table{width:100%;border-collapse:collapse;}
+.summary-table td{padding:8px 18px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:top;}
+.summary-table td:first-child{color:var(--text-muted);width:35%;font-size:12px;}
+.summary-table tr:last-child td{border-bottom:none;}
+.summary-sub-header td{background:var(--gold-pale);color:var(--navy);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;padding:6px 18px;border-bottom:1px solid var(--border);}
+.note-box{background:var(--gold-pale);border-left:3px solid var(--gold);border-radius:4px;padding:10px 14px;font-size:12px;color:var(--text-muted);margin-bottom:18px;line-height:1.6;}
+.divider-label{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:0.6px;color:var(--text-muted);margin:18px 0 10px;display:flex;align-items:center;gap:10px;}
+.divider-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.setup-banner{background:#fff8e1;border:1px solid #f0c040;border-radius:8px;padding:14px 18px;margin-bottom:18px;font-size:13px;color:#5a4000;}
+.setup-banner input{font-size:12px;padding:6px 10px;border:1px solid #ddd;border-radius:4px;width:100%;margin:8px 0 0;font-family:'DM Sans',sans-serif;}
+.setup-actions{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;}
+.save-url-btn{padding:6px 16px;background:var(--navy);color:white;border:none;border-radius:4px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.skip-url-btn{padding:6px 16px;background:none;color:var(--text-muted);border:1px solid var(--border);border-radius:4px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.status-msg{font-size:11px;margin-top:4px;display:none;}
+.status-msg.success{color:var(--success);}.status-msg.error{color:var(--danger);}
+.client-id-screen{max-width:520px;margin:0 auto;}
+.big-input{font-size:20px !important;padding:14px 16px !important;text-align:center;font-weight:500;letter-spacing:2px;text-transform:uppercase;}
+.start-btn{width:100%;padding:13px;border:none;border-radius:8px;background:var(--navy);color:white;font-size:15px;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;margin-top:8px;}
+.start-btn:hover{background:var(--navy-light);}
+.or-divider{text-align:center;font-size:12px;color:var(--text-muted);margin:16px 0;position:relative;}
+.or-divider::before,.or-divider::after{content:'';position:absolute;top:50%;width:44%;height:1px;background:var(--border);}
+.or-divider::before{left:0;}.or-divider::after{right:0;}
+.dashboard{background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:20px;}
+.dashboard-header{background:var(--navy);color:var(--gold);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:1px;padding:10px 18px;}
+.dashboard-empty{padding:18px;font-size:13px;color:var(--text-muted);font-style:italic;}
+.client-row{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px;}
+.client-row:last-child{border-bottom:none;}.client-row:hover{background:var(--off-white);}
+.client-id-badge{font-size:12px;font-weight:500;color:var(--navy);background:rgba(26,58,92,0.08);padding:3px 10px;border-radius:20px;}
+.client-name{font-size:13px;color:var(--text);margin-left:8px;}
+.client-meta{font-size:11px;color:var(--text-muted);}
+.client-status-badge{font-size:11px;padding:2px 10px;border-radius:20px;}
+.status-partial{background:var(--warning-bg);color:var(--warning);}
+.status-complete{background:var(--success-bg);color:var(--success);}
+.resume-btn{padding:5px 14px;border:1px solid var(--navy);border-radius:4px;background:none;color:var(--navy);font-size:11px;font-family:'DM Sans',sans-serif;cursor:pointer;}
+.resume-btn:hover{background:var(--navy);color:white;}
+.delete-btn{padding:5px 10px;border:1px solid rgba(192,57,43,0.3);border-radius:4px;background:none;color:var(--danger);font-size:11px;font-family:'DM Sans',sans-serif;cursor:pointer;}
+.autosave-indicator{position:fixed;bottom:16px;right:16px;background:var(--navy);color:var(--gold-light);font-size:11px;padding:6px 14px;border-radius:20px;opacity:0;transition:opacity 0.3s;z-index:200;}
+.autosave-indicator.show{opacity:1;}
+</style>
+</head>
+<body>
+
+<div class="app-header">
+  <div>
+    <div class="firm-name">Sarthi Estate and Legacy Partners</div>
+    <div class="tool-badge">Will Interview — Client Portal</div>
+  </div>
+  <div class="header-right">
+    <div id="header-date"></div>
+    <div class="header-client-id" id="header-client-id"></div>
+  </div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-steps" id="progress-steps">
+    <div class="prog-step active" id="ps0">Start</div>
+    <div class="prog-step" id="ps1">1. Personal</div>
+    <div class="prog-step" id="ps2">2. Family</div>
+    <div class="prog-step" id="ps3">3. Asset Checklist</div>
+    <div class="prog-step" id="ps4">4. Asset Details</div>
+    <div class="prog-step" id="ps5">5. Beneficiaries</div>
+    <div class="prog-step" id="ps6">6. Executor</div>
+    <div class="prog-step" id="ps7">7. Special Wishes</div>
+    <div class="prog-step" id="ps8">Summary</div>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- SCREEN 0: START -->
+<div class="section active" id="sec0">
+  <div class="client-id-screen">
+    <div class="section-title" style="text-align:center;margin-bottom:6px;">Will Interview Tool</div>
+    <div class="section-desc" style="text-align:center;border:none;margin-bottom:24px;padding-bottom:0;">Enter your Client ID provided by Sarthi to begin or continue your will interview. Your progress is automatically saved on this device.</div>
+    <div class="card">
+      <div class="field">
+        <label>Your Client ID <span class="req">*</span></label>
+        <input type="text" id="client-id-input" class="big-input" placeholder="E.G. SHARMA-001" oninput="this.value=this.value.toUpperCase()">
+        <div style="font-size:11px;color:var(--text-muted);margin-top:6px;">Your Sarthi advisor will provide this. E.g. SHARMA-001, JAIPUR-APR-02</div>
+      </div>
+      <button class="start-btn" onclick="startOrResume()">Begin My Will Interview &#8594;</button>
+    </div>
+    <div class="or-divider">Previously saved sessions</div>
+    <div class="dashboard" id="client-dashboard">
+      <div class="dashboard-header">Saved on this device</div>
+      <div class="dashboard-empty" id="dashboard-empty">No saved sessions found.</div>
+      <div id="dashboard-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 1: PERSONAL -->
+<div class="section" id="sec1">
+  <div class="section-title">Personal Details</div>
+  <div class="section-desc">Please fill in your identification details exactly as they appear on your official documents (Aadhaar card, PAN card).</div>
+  <div class="card">
+    <div class="card-title">Identity</div>
+    <div class="g3">
+      <div class="field"><label>Full name <span class="req">*</span></label><input type="text" id="p_name" placeholder="e.g. Mr. Rajesh Kumar Sharma"></div>
+      <div class="field"><label>Age</label><input type="text" id="p_age" placeholder="e.g. 65"></div>
+      <div class="field"><label>Date of birth</label><input type="date" id="p_dob"></div>
+    </div>
+    <div class="g3">
+      <div class="field"><label>Father's / Husband's name</label><input type="text" id="p_parent" placeholder="Full name"></div>
+      <div class="field"><label>PAN number</label><input type="text" id="p_pan" placeholder="ABCDE1234F" style="text-transform:uppercase"></div>
+      <div class="field"><label>Aadhaar number</label><input type="text" id="p_aadhaar" placeholder="12-digit number"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Contact &amp; Address</div>
+    <div class="field"><label>Permanent address <span class="req">*</span></label><textarea id="p_address" placeholder="Full address including area, city, state and PIN code"></textarea></div>
+    <div class="g3">
+      <div class="field"><label>Mobile number <span class="req">*</span></label><input type="tel" id="p_mobile" placeholder="10-digit number"></div>
+      <div class="field"><label>Alternate mobile</label><input type="tel" id="p_mobile2" placeholder="10-digit number"></div>
+      <div class="field"><label>Email address</label><input type="email" id="p_email" placeholder="email@example.com"></div>
+    </div>
+  </div>
+  <div class="nav">
+    <div class="nav-left"><button class="btn-save" onclick="saveAndClose()">Save &amp; Exit</button></div>
+    <div class="nav-right">
+      <button class="btn-back" onclick="goTo(0)">&#8592; Back</button>
+      <button class="btn-next" onclick="saveAndContinue(2)">Save &amp; Continue &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 2: FAMILY -->
+<div class="section" id="sec2">
+  <div class="section-title">Family Structure</div>
+  <div class="section-desc">Tell us about your spouse, children, and any dependants. This helps us draft the will accurately.</div>
+  <div class="card">
+    <div class="card-title">Spouse details</div>
+    <div class="g4">
+      <div class="field"><label>Marital status <span class="req">*</span></label>
+        <select id="f_marital"><option value="">-- Select --</option><option>Married</option><option>Widowed</option><option>Divorced</option><option>Single / Never married</option></select>
+      </div>
+      <div class="field"><label>Spouse's full name</label><input type="text" id="f_spouse" placeholder="Full name"></div>
+      <div class="field"><label>Spouse's age</label><input type="text" id="f_spouse_age" placeholder="e.g. 60"></div>
+      <div class="field"><label>Spouse's PAN / Aadhaar</label><input type="text" id="f_spouse_pan" placeholder="PAN or Aadhaar"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Children</div>
+    <div id="children-list">
+      <div class="item-block" id="child-1">
+        <div class="item-header"><span class="item-num">Child 1</span></div>
+        <div class="g4">
+          <div class="field"><label>Full name</label><input type="text" placeholder="Name"></div>
+          <div class="field"><label>Age</label><input type="text" placeholder="Age"></div>
+          <div class="field"><label>Son / Daughter</label><select><option value="">--</option><option>Son</option><option>Daughter</option></select></div>
+          <div class="field"><label>Married?</label><select><option value="">--</option><option>Yes</option><option>No</option></select></div>
+        </div>
+        <div class="g4">
+          <div class="field"><label>PAN / Aadhaar</label><input type="text" placeholder="PAN or Aadhaar"></div>
+          <div class="field"><label>Mobile</label><input type="tel" placeholder="Mobile number"></div>
+          <div class="field"><label>Resident / NRI</label><select><option value="">--</option><option>India Resident</option><option>NRI</option></select></div>
+          <div class="field"><label>Place of residence</label><input type="text" placeholder="City / Country"></div>
+        </div>
+        <div class="g2">
+          <div class="field"><label>Has children? (your grandchildren)</label><select><option value="">--</option><option>Yes</option><option>No</option></select></div>
+          <div class="field"><label>If yes — names / ages of grandchildren</label><input type="text" placeholder="e.g. Rohan (8), Priya (5)"></div>
+        </div>
+      </div>
+    </div>
+    <button class="add-btn" onclick="addChild()">+ Add another child</button>
+  </div>
+  <div class="card">
+    <div class="card-title">Other family details</div>
+    <div class="g2">
+      <div class="field"><label>Other dependants</label><textarea id="f_dependants" placeholder="Names, relationship, any special care needs..."></textarea></div>
+      <div class="field"><label>Minor beneficiaries (under 18)</label><textarea id="f_minors" placeholder="Names and ages of minors who may inherit..."></textarea></div>
+    </div>
+    <div class="field"><label>Any special family circumstances?</label><textarea id="f_complications" placeholder="e.g. second marriage, adopted children, family members you wish to exclude — anything relevant to your will..."></textarea></div>
+  </div>
+  <div class="nav">
+    <div class="nav-left"><button class="btn-save" onclick="saveAndClose()">Save &amp; Exit</button></div>
+    <div class="nav-right">
+      <button class="btn-back" onclick="goTo(1)">&#8592; Back</button>
+      <button class="btn-next" onclick="saveAndContinue(3)">Save &amp; Continue &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 3: ASSET CHECKLIST -->
+<div class="section" id="sec3">
+  <div class="section-title">Asset Checklist</div>
+  <div class="section-desc">Please go through each asset type below and mark Yes or No. Only assets you mark Yes will appear in the next step.</div>
+  <div class="note-box">Think about all financial accounts, property, investments, and valuables you own — either solely or jointly. Include assets where you are a nominee or have a bank locker.</div>
+  <div class="card">
+    <div class="card-title">What assets do you have?</div>
+    <div class="checklist-grid" id="asset-checklist">
+      <div class="checklist-item" id="chk-property"><span class="checklist-label">Residential / Commercial Property</span><div class="toggle-btns"><button class="toggle-btn" onclick="toggleAsset('property',true,this)">Yes</button><button class="toggle-btn" onclick="toggleAsset('property',false,this)">No</button></div></div>
+      <div class="checklist-item" id="chk-plot"><span class="checklist-label">Plot or Agricultural Land</span><div class="toggle-btns"><button class="toggle-btn" onclick="toggleAsset('plot',true,this)">Yes</button><button class="toggle-btn" onclick="toggleAsset('plot',false,this)">No</button></div></div>
+      <div class="checklist-item" id="chk-fd"><span class="checklist-label">Fixed Deposits</span><div class="toggle-btns"><button class="toggle-btn" onclick="toggleAsset('fd',true,this)">Yes</button><button class="toggle-btn" onclick="toggleAsset('fd',false,this)">No</button></div></div>
+      <div class="checklist-item" id="chk-bank"><span class="checklist-label">Bank Accounts</span><div class="toggle-btns"><button class="toggle-btn" onclick="toggleAsset('bank',true,this)">Yes</button><button class="toggle-btn" onclick="toggleAsset('bank',false,this)">No</button></div></div>
+      <div class="checklist-item" id="chk-mf"><span class="checklist-label">Mutual Funds</span><div class="toggle-btns"><button class="toggle-btn" onclick="toggleAsset('mf',true,this)">Yes</button><button class="toggle-btn" onclick="toggleAsset('mf',false,this)">No</button></div></div>
+      <div class="checklist-item" id="chk-shares"><span class="checklist-label">Shares / Stocks / Demat</span><div class="toggle-btns"><button class="toggle-btn" onclick="toggleAsset('shares',true,this)">Yes</button><button class="toggle-btn" onclick="toggleAsset('shares',false,this)">No</button></div></div>
+      <div class="checklist-item" id="chk-insurance"><span class="checklist-label">Life Insurance Policies</span><div class="toggle-btns"><button class="toggle-btn" onclick="toggleAsset('insurance',true,this)">Yes</button><button class="toggle-btn" onclick="toggleAsset('insurance',false,this)">No</button></div></div>
+      <div class="checklist-item" id="chk-pf"><span class="checklist-label">EPF / PPF / NPS</span><div class="toggle-btns"><button class="toggle-btn" onclick="toggleAsset('pf',true,this)">Yes</button><button class="toggle-btn" onclick="toggleAsset('pf',false,this)">No</button></div></div>
+      <div class="checklist-item" id="chk-gold"><span class="checklist-label">Gold / Jewellery</span><div class="toggle-btns"><button class="toggle-btn" onclick="toggleAsset('gold',true,this)">Yes</button><button class="toggle-btn" onclick="toggleAsset('gold',false,this)">No</button></div></div>
+      <div class="checklist-item" id="chk-vehicle"><span class="checklist-label">Vehicles (Car / Two-wheeler)</span><div class="toggle-btns"><button class="toggle-btn" onclick="toggleAsset('vehicle',true,this)">Yes</button><button class="toggle-btn" onclick="toggleAsset('vehicle',false,this)">No</button></div></div>
+      <div class="checklist-item" id="chk-business"><span class="checklist-label">Business Interest / Partnership</span><div class="toggle-btns"><button class="toggle-btn" onclick="toggleAsset('business',true,this)">Yes</button><button class="toggle-btn" onclick="toggleAsset('business',false,this)">No</button></div></div>
+      <div class="checklist-item" id="chk-other"><span class="checklist-label">Any Other Asset</span><div class="toggle-btns"><button class="toggle-btn" onclick="toggleAsset('other',true,this)">Yes</button><button class="toggle-btn" onclick="toggleAsset('other',false,this)">No</button></div></div>
+    </div>
+  </div>
+  <div class="nav">
+    <div class="nav-left"><button class="btn-save" onclick="saveAndClose()">Save &amp; Exit</button></div>
+    <div class="nav-right">
+      <button class="btn-back" onclick="goTo(2)">&#8592; Back</button>
+      <button class="btn-next" onclick="saveAndContinue(4)">Save &amp; Continue &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 4: ASSET DETAILS -->
+<div class="section" id="sec4">
+  <div class="section-title">Asset Details</div>
+  <div class="section-desc">Please fill in details for each asset type you declared. Provide as much information as you have available — you can always fill in the rest later.</div>
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
+    <div class="asset-tabs" id="asset-tabs" style="flex:1;margin-bottom:0;"></div>
+    <button class="add-btn" style="width:auto;padding:6px 14px;white-space:nowrap;" onclick="showAddAssetPrompt()">+ Add asset type</button>
+  </div>
+  <div id="asset-details-container"></div>
+  <div class="nav">
+    <div class="nav-left"><button class="btn-save" onclick="saveAndClose()">Save &amp; Exit</button></div>
+    <div class="nav-right">
+      <button class="btn-back" onclick="goTo(3)">&#8592; Back</button>
+      <button class="btn-next" onclick="saveAndContinue(5)">Save &amp; Continue &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 5: BENEFICIARIES -->
+<div class="section" id="sec5">
+  <div class="section-title">Beneficiaries</div>
+  <div class="section-desc">List the people or organisations who should inherit your assets. You can specify which assets go to each person, or a percentage share of the total estate.</div>
+  <div class="note-box">Share percentages for all beneficiaries should add up to 100%. If you are unsure about exact percentages, your Sarthi advisor can help you decide.</div>
+  <div id="beneficiaries-list">
+    <div class="item-block" id="bene-1">
+      <div class="item-header"><span class="item-num">Beneficiary 1</span></div>
+      <div class="g3">
+        <div class="field"><label>Full name <span class="req">*</span></label><input type="text" placeholder="Full legal name"></div>
+        <div class="field"><label>Relationship <span class="req">*</span></label><select><option value="">-- Select --</option><option>Spouse</option><option>Son</option><option>Daughter</option><option>Father</option><option>Mother</option><option>Brother</option><option>Sister</option><option>Grandson</option><option>Granddaughter</option><option>Nephew</option><option>Niece</option><option>Charitable Trust / NGO</option><option>Other</option></select></div>
+        <div class="field"><label>Share % of estate</label><input type="number" placeholder="e.g. 50" min="0" max="100"></div>
+      </div>
+      <div class="g3">
+        <div class="field"><label>PAN / Aadhaar</label><input type="text" placeholder="PAN or Aadhaar"></div>
+        <div class="field"><label>Mobile number</label><input type="tel" placeholder="Mobile"></div>
+        <div class="field"><label>Date of birth</label><input type="date"></div>
+      </div>
+      <div class="field"><label>Specific assets assigned (optional)</label><input type="text" placeholder="e.g. Flat at Mumbai, SBI Bank Account — leave blank if share% applies to entire estate"></div>
+      <div class="field"><label>Any conditions (optional)</label><input type="text" placeholder="e.g. Only after completing education, held in trust until age 25..."></div>
+    </div>
+  </div>
+  <button class="add-btn" onclick="addBeneficiary()">+ Add another beneficiary</button>
+  <div id="share-total-bar" style="margin-top:12px;padding:10px 14px;border-radius:6px;font-size:12px;display:none;"></div>
+  <div class="nav">
+    <div class="nav-left"><button class="btn-save" onclick="saveAndClose()">Save &amp; Exit</button></div>
+    <div class="nav-right">
+      <button class="btn-back" onclick="goTo(4)">&#8592; Back</button>
+      <button class="btn-next" onclick="saveAndContinue(6)">Save &amp; Continue &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 6: EXECUTOR -->
+<div class="section" id="sec6">
+  <div class="section-title">Executor &amp; Witnesses</div>
+  <div class="section-desc">The executor is the person responsible for carrying out your will. Witnesses attest your signature — they must not be beneficiaries of your will.</div>
+  <div class="card">
+    <div class="card-title">Primary executor</div>
+    <div class="g4">
+      <div class="field"><label>Full name <span class="req">*</span></label><input type="text" id="ex_name" placeholder="Full name"></div>
+      <div class="field"><label>Relationship to you</label><input type="text" id="ex_rel" placeholder="e.g. Son, Daughter, CA, Friend"></div>
+      <div class="field"><label>Mobile number</label><input type="tel" id="ex_mobile" placeholder="10-digit number"></div>
+      <div class="field"><label>PAN / Aadhaar</label><input type="text" id="ex_pan" placeholder="PAN or Aadhaar"></div>
+    </div>
+    <div class="field"><label>Address</label><textarea id="ex_address" placeholder="Full address" style="min-height:55px;"></textarea></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Alternate executor <span style="font-size:11px;font-weight:400;color:var(--text-muted);text-transform:none;letter-spacing:0;">(recommended)</span></div>
+    <div class="g4">
+      <div class="field"><label>Full name</label><input type="text" id="alt_name" placeholder="Full name"></div>
+      <div class="field"><label>Relationship</label><input type="text" id="alt_rel" placeholder="Relationship"></div>
+      <div class="field"><label>Mobile</label><input type="tel" id="alt_mobile" placeholder="10-digit number"></div>
+      <div class="field"><label>PAN / Aadhaar</label><input type="text" id="alt_pan" placeholder="PAN or Aadhaar"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Witnesses <span style="font-size:11px;font-weight:400;color:var(--text-muted);text-transform:none;letter-spacing:0;">(2 required — must not be beneficiaries)</span></div>
+    <div class="divider-label">Witness 1</div>
+    <div class="g3">
+      <div class="field"><label>Full name</label><input type="text" id="w1_name" placeholder="Full name"></div>
+      <div class="field"><label>Mobile</label><input type="tel" id="w1_mobile" placeholder="Mobile"></div>
+      <div class="field"><label>ID number (Aadhaar / PAN)</label><input type="text" id="w1_id" placeholder="Aadhaar / PAN"></div>
+    </div>
+    <div class="field"><label>Address</label><input type="text" id="w1_address" placeholder="Full address"></div>
+    <div class="divider-label">Witness 2</div>
+    <div class="g3">
+      <div class="field"><label>Full name</label><input type="text" id="w2_name" placeholder="Full name"></div>
+      <div class="field"><label>Mobile</label><input type="tel" id="w2_mobile" placeholder="Mobile"></div>
+      <div class="field"><label>ID number (Aadhaar / PAN)</label><input type="text" id="w2_id" placeholder="Aadhaar / PAN"></div>
+    </div>
+    <div class="field"><label>Address</label><input type="text" id="w2_address" placeholder="Full address"></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Guardian for minor beneficiaries <span style="font-size:11px;font-weight:400;color:var(--text-muted);text-transform:none;letter-spacing:0;">(if applicable)</span></div>
+    <div class="g3">
+      <div class="field"><label>Guardian's full name</label><input type="text" id="guardian_name" placeholder="Full name"></div>
+      <div class="field"><label>Relationship to children</label><input type="text" id="guardian_rel" placeholder="e.g. Uncle, Aunt, Cousin"></div>
+      <div class="field"><label>Mobile</label><input type="tel" id="guardian_mobile" placeholder="Mobile number"></div>
+    </div>
+  </div>
+  <div class="nav">
+    <div class="nav-left"><button class="btn-save" onclick="saveAndClose()">Save &amp; Exit</button></div>
+    <div class="nav-right">
+      <button class="btn-back" onclick="goTo(5)">&#8592; Back</button>
+      <button class="btn-next" onclick="saveAndContinue(7)">Save &amp; Continue &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 7: SPECIAL WISHES -->
+<div class="section" id="sec7">
+  <div class="section-title">Special Wishes &amp; Notes</div>
+  <div class="section-desc">Please share any personal wishes that go beyond standard asset distribution. This is your opportunity to record what matters most to you.</div>
+  <div class="card">
+    <div class="card-title">Personal &amp; religious wishes</div>
+    <div class="g2">
+      <div class="field"><label>Last rites / funeral instructions</label><textarea id="sw_rites" placeholder="e.g. specific religious rites, cremation vs burial, location..."></textarea></div>
+      <div class="field"><label>Care of spouse or dependants</label><textarea id="sw_care" placeholder="e.g. monthly support amount, who should care for them, housing wishes..."></textarea></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Charitable &amp; personal bequests</div>
+    <div class="g2">
+      <div class="field"><label>Charitable donations or bequests</label><textarea id="sw_charity" placeholder="e.g. Rs 2 lakh to XYZ temple, donation to local NGO..."></textarea></div>
+      <div class="field"><label>Personal belongings &amp; jewellery distribution</label><textarea id="sw_personal" placeholder="e.g. mother's jewellery to elder daughter, grandfather's watch to eldest son..."></textarea></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Liabilities &amp; financial obligations</div>
+    <div class="field"><label>Outstanding loans or liabilities</label><textarea id="sw_loans" placeholder="e.g. home loan with SBI — Rs 12 lakh outstanding, personal loan from brother — Rs 50,000..."></textarea></div>
+    <div class="field"><label>Amounts receivable (money owed to you)</label><textarea id="sw_receivable" placeholder="e.g. loan given to nephew of Rs 1 lakh, security deposit with landlord..."></textarea></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Additional notes</div>
+    <div class="field"><label>Anything else your advisor should know</label><textarea id="sw_other" placeholder="Any other instructions, wishes, or concerns not covered above..."></textarea></div>
+    <div class="field"><label>Documents you still need to provide</label><textarea id="sw_followup" placeholder="e.g. FD receipt from SBI to be shared, PAN of daughter to be confirmed..."></textarea></div>
+  </div>
+  <div class="nav">
+    <div class="nav-left"><button class="btn-save" onclick="saveAndClose()">Save &amp; Exit</button></div>
+    <div class="nav-right">
+      <button class="btn-back" onclick="goTo(6)">&#8592; Back</button>
+      <button class="btn-generate" onclick="showSummary()">Review &amp; Submit &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 8: SUMMARY -->
+<div class="section" id="sec8">
+  <div class="setup-banner" id="setup-banner" style="display:none;">
+    <strong>Connect to Sarthi's system:</strong> Paste the Google Apps Script URL provided by your Sarthi advisor to submit your data securely.<br>
+    <input type="text" id="script-url-input" placeholder="https://script.google.com/macros/s/XXXX/exec">
+    <div class="setup-actions">
+      <button class="save-url-btn" onclick="saveScriptUrl()">Save &amp; Connect</button>
+      <button class="skip-url-btn" onclick="document.getElementById('setup-banner').style.display='none'">Skip for now</button>
+    </div>
+  </div>
+  <div class="summary-header">
+    <div>
+      <div class="summary-firm">Sarthi Estate and Legacy Partners</div>
+      <div class="summary-meta">Will Interview Summary &nbsp;|&nbsp; Client ID: <strong id="summary-client-id"></strong> &nbsp;|&nbsp; <span id="summary-date"></span></div>
+    </div>
+    <div class="summary-actions">
+      <button class="copy-btn" onclick="copySummary()">Copy summary</button>
+      <button class="save-sheet-btn" onclick="saveToSheet()">&#9654; Submit to Sarthi</button>
+      <div class="status-msg" id="status-msg"></div>
+    </div>
+  </div>
+  <div style="font-size:13px;font-weight:500;color:var(--navy);margin-bottom:12px;">Completion status</div>
+  <div class="scorecard" id="scorecard"></div>
+  <div id="pending-container"></div>
+  <div id="wa-container"></div>
+  <div style="font-size:13px;font-weight:500;color:var(--navy);margin:20px 0 12px;">Your complete interview details</div>
+  <div id="summary-output"></div>
+  <div class="nav">
+    <button class="btn-save" onclick="startNew()">Start new interview</button>
+    <button class="btn-back" onclick="goTo(7)">&#8592; Back to edit</button>
+  </div>
+</div>
+
+</div>
+<div class="autosave-indicator" id="autosave-indicator">Progress saved</div>
+
+<script>
+var currentStep=0,currentClientId='',childCount=1,beneficiaryCount=1;
+var assetCounts={},activeAssets={},activeAssetTab='',autosaveTimer=null;
+
+var ASSET_CONFIG={
+  property:{label:'Property',fields:['Type (Flat/House/Office/Shop)','Flat or House no.','Society / Building name','Full address','Deed / Registration no.','How acquired','Area (sq.ft.)','Market value (Rs)','Loan / mortgage outstanding']},
+  plot:{label:'Plot / Land',fields:['Type (Residential/Agricultural/Commercial)','Survey / Khasra no.','Location / address','Registration no.','How acquired','Area (sq.ft. or acres)','Market value (Rs)','Remarks']},
+  fd:{label:'Fixed Deposits',fields:['Bank / Institution name','FD receipt / account no.','Branch','Principal amount (Rs)','Maturity date','Interest rate (%)','Existing nominee declared','Notes']},
+  bank:{label:'Bank Accounts',fields:['Bank name','Account number','Account type (Savings/Current/Joint)','Branch','IFSC code','Existing nominee declared']},
+  mf:{label:'Mutual Funds',fields:['Fund house name','Folio number','Scheme name','Type (Equity/Debt/Hybrid)','Current value (Rs)','Held in demat?','Demat / DP no.','Existing nominee','Notes']},
+  shares:{label:'Shares / Demat',fields:['Broker / DP name','Demat account no.','CDSL or NSDL','Is PAN linked?','Approximate value (Rs)','Key holdings (companies)','Existing nominee']},
+  insurance:{label:'Life Insurance',fields:['Insurance company','Policy number','Policy type (Term/Endowment/ULIP)','Sum assured (Rs)','Annual premium (Rs)','Maturity date','Existing nominee declared']},
+  pf:{label:'EPF / PPF / NPS',fields:['Account type (EPF/PPF/NPS)','Account / PRAN / UAN no.','Institution / Employer','Current balance (Rs)','Existing nominee','Notes']},
+  gold:{label:'Gold & Jewellery',fields:['Type (Gold jewellery/Coins/Silver/Other)','Weight / quantity','Where stored (Home/Bank locker)','Estimated value (Rs)','Description','Notes']},
+  vehicle:{label:'Vehicles',fields:['Type (Car/Two-wheeler/Other)','Registration no.','Make / Model / Year','Estimated value (Rs)']},
+  business:{label:'Business Interest',fields:['Business name','Type (Pvt Ltd/Partnership/Proprietorship/LLP)','Your % ownership','Registered address','Approximate value (Rs)','Co-owners / partners','Notes']},
+  other:{label:'Other Assets',fields:['Asset type','Institution / Company','Account / Policy no.','Estimated value (Rs)','Existing nominee','Notes']}
+};
+
+document.getElementById('header-date').textContent=new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'});
+loadDashboard();
+
+function scheduleAutosave(){
+  clearTimeout(autosaveTimer);
+  autosaveTimer=setTimeout(function(){
+    if(currentStep>0&&currentClientId){
+      saveClientData(collectAllData());
+      var ind=document.getElementById('autosave-indicator');
+      ind.classList.add('show');
+      setTimeout(function(){ind.classList.remove('show');},2000);
+    }
+  },1500);
+}
+document.addEventListener('input',scheduleAutosave);
+document.addEventListener('change',scheduleAutosave);
+
+function startOrResume(){
+  var id=document.getElementById('client-id-input').value.trim().toUpperCase();
+  if(!id){alert('Please enter your Client ID.');return;}
+  currentClientId=id;
+  document.getElementById('header-client-id').textContent='Client: '+id;
+  var saved=loadClientData(id);
+  if(saved){
+    if(confirm('Saved progress found for '+id+'. Resume from where you left off?')){
+      restoreData(saved);goTo(saved.lastStep||1);
+    } else {
+      if(confirm('Start fresh? This will clear all saved data for '+id+'.')){clearClientData(id);goTo(1);}
+    }
+  } else {goTo(1);}
+}
+
+function loadDashboard(){
+  var list=document.getElementById('dashboard-list'),empty=document.getElementById('dashboard-empty');
+  list.innerHTML='';
+  var keys=[];
+  for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf('sarthi_client_')===0)keys.push(k);}
+  if(keys.length===0){empty.style.display='block';return;}
+  empty.style.display='none';
+  keys.forEach(function(k){
+    try{
+      var d=JSON.parse(localStorage.getItem(k));
+      var id=k.replace('sarthi_client_','');
+      var name=(d.personal&&d.personal.p_name)||'--';
+      var saved=d.savedAt||'';
+      var complete=d.complete||false;
+      var row=document.createElement('div');row.className='client-row';
+      row.innerHTML='<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><span class="client-id-badge">'+id+'</span><span class="client-name">'+name+'</span></div>'+
+        '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><span class="client-meta">'+saved+'</span>'+
+        '<span class="client-status-badge '+(complete?'status-complete':'status-partial')+'">'+(complete?'Complete':'In progress')+'</span>'+
+        '<button class="resume-btn" onclick="quickResume(\''+id+'\')">Resume</button>'+
+        '<button class="delete-btn" onclick="deleteClient(\''+id+'\')">Delete</button></div>';
+      list.appendChild(row);
+    }catch(e){}
+  });
+}
+
+function quickResume(id){document.getElementById('client-id-input').value=id;startOrResume();}
+function deleteClient(id){if(confirm('Delete all saved data for '+id+'?')){localStorage.removeItem('sarthi_client_'+id);loadDashboard();}}
+
+function saveClientData(data){
+  data.savedAt=new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'})+' '+new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+  data.lastStep=currentStep;
+  localStorage.setItem('sarthi_client_'+currentClientId,JSON.stringify(data));
+  loadDashboard();
+}
+function loadClientData(id){var d=localStorage.getItem('sarthi_client_'+id);return d?JSON.parse(d):null;}
+function clearClientData(id){localStorage.removeItem('sarthi_client_'+id);}
+
+function collectAllData(){
+  var d={};
+  d.personal={};
+  ['p_name','p_age','p_dob','p_parent','p_pan','p_aadhaar','p_address','p_mobile','p_mobile2','p_email'].forEach(function(id){var el=document.getElementById(id);if(el)d.personal[id]=el.value;});
+  d.family={};
+  ['f_marital','f_spouse','f_spouse_age','f_spouse_pan','f_dependants','f_minors','f_complications'].forEach(function(id){var el=document.getElementById(id);if(el)d.family[id]=el.value;});
+  d.family.children=[];
+  document.querySelectorAll('#children-list .item-block').forEach(function(c){
+    var inp=c.querySelectorAll('input,select');var child={};
+    ['name','age','type','married','pan','mobile','resident','place','grandchildren','gc_names'].forEach(function(f,i){child[f]=inp[i]?inp[i].value:'';});
+    d.family.children.push(child);
+  });
+  d.assetChecklist=Object.assign({},activeAssets);
+  d.assetDetails={};
+  Object.keys(activeAssets).forEach(function(type){
+    if(!activeAssets[type])return;
+    d.assetDetails[type]=[];
+    var listEl=document.getElementById('asset-list-'+type);if(!listEl)return;
+    listEl.querySelectorAll('.item-block').forEach(function(block){
+      var inputs=block.querySelectorAll('input,textarea,select');var row=[];
+      inputs.forEach(function(inp){row.push(inp.value);});d.assetDetails[type].push(row);
+    });
+  });
+  d.beneficiaries=[];
+  document.querySelectorAll('#beneficiaries-list .item-block').forEach(function(b){
+    var inp=b.querySelectorAll('input,select');var ben={};
+    ['name','relation','share','pan','mobile','dob','assets','conditions'].forEach(function(f,i){ben[f]=inp[i]?inp[i].value:'';});
+    d.beneficiaries.push(ben);
+  });
+  d.executor={};
+  ['ex_name','ex_rel','ex_mobile','ex_pan','ex_address','alt_name','alt_rel','alt_mobile','alt_pan','w1_name','w1_mobile','w1_id','w1_address','w2_name','w2_mobile','w2_id','w2_address','guardian_name','guardian_rel','guardian_mobile'].forEach(function(id){var el=document.getElementById(id);if(el)d.executor[id]=el.value;});
+  d.wishes={};
+  ['sw_rites','sw_care','sw_charity','sw_personal','sw_loans','sw_receivable','sw_other','sw_followup'].forEach(function(id){var el=document.getElementById(id);if(el)d.wishes[id]=el.value;});
+  return d;
+}
+
+function restoreData(d){
+  if(d.personal)Object.keys(d.personal).forEach(function(id){var el=document.getElementById(id);if(el)el.value=d.personal[id];});
+  if(d.family){
+    ['f_marital','f_spouse','f_spouse_age','f_spouse_pan','f_dependants','f_minors','f_complications'].forEach(function(id){var el=document.getElementById(id);if(el&&d.family[id]!==undefined)el.value=d.family[id];});
+    if(d.family.children&&d.family.children.length>0){
+      var list=document.getElementById('children-list');
+      while(list.querySelectorAll('.item-block').length>1)list.lastElementChild.remove();
+      childCount=1;
+      d.family.children.forEach(function(child,idx){
+        if(idx>0)addChild();
+        var block=list.querySelectorAll('.item-block')[idx];if(!block)return;
+        var inp=block.querySelectorAll('input,select');
+        ['name','age','type','married','pan','mobile','resident','place','grandchildren','gc_names'].forEach(function(f,i){if(inp[i]&&child[f]!==undefined)inp[i].value=child[f];});
+      });
+    }
+  }
+  if(d.assetChecklist){
+    activeAssets=d.assetChecklist;
+    Object.keys(activeAssets).forEach(function(type){
+      var chkEl=document.getElementById('chk-'+type);if(!chkEl)return;
+      var btns=chkEl.querySelectorAll('.toggle-btn');
+      if(activeAssets[type]){chkEl.classList.add('yes');btns[0].classList.add('yes-active');btns[1].classList.remove('no-active');}
+      else{chkEl.classList.add('no');btns[1].classList.add('no-active');btns[0].classList.remove('yes-active');}
+    });
+  }
+  if(d.assetDetails){
+    buildAssetTabs();
+    Object.keys(d.assetDetails).forEach(function(type){
+      if(!d.assetDetails[type])return;
+      var listEl=document.getElementById('asset-list-'+type);if(!listEl)return;
+      while(listEl.querySelectorAll('.item-block').length>1)listEl.lastElementChild.remove();
+      if(!assetCounts[type])assetCounts[type]=1;
+      d.assetDetails[type].forEach(function(row,idx){
+        if(idx>0)addAsset(type);
+        var block=listEl.querySelectorAll('.item-block')[idx];if(!block)return;
+        var inputs=block.querySelectorAll('input,textarea,select');
+        row.forEach(function(val,i){if(inputs[i])inputs[i].value=val;});
+      });
+    });
+  }
+  if(d.beneficiaries&&d.beneficiaries.length>0){
+    var blist=document.getElementById('beneficiaries-list');
+    while(blist.querySelectorAll('.item-block').length>1)blist.lastElementChild.remove();
+    beneficiaryCount=1;
+    d.beneficiaries.forEach(function(ben,idx){
+      if(idx>0)addBeneficiary();
+      var block=blist.querySelectorAll('.item-block')[idx];if(!block)return;
+      var inp=block.querySelectorAll('input,select');
+      ['name','relation','share','pan','mobile','dob','assets','conditions'].forEach(function(f,i){if(inp[i]&&ben[f]!==undefined)inp[i].value=ben[f];});
+    });
+  }
+  if(d.executor)Object.keys(d.executor).forEach(function(id){var el=document.getElementById(id);if(el)el.value=d.executor[id];});
+  if(d.wishes)Object.keys(d.wishes).forEach(function(id){var el=document.getElementById(id);if(el)el.value=d.wishes[id];});
+}
+
+function goTo(n){
+  document.getElementById('sec'+currentStep).classList.remove('active');
+  currentStep=n;
+  document.getElementById('sec'+n).classList.add('active');
+  for(var i=0;i<9;i++){
+    var el=document.getElementById('ps'+i);if(!el)continue;
+    if(i<n){el.classList.remove('active');el.classList.add('done');}
+    else if(i===n){el.classList.add('active');el.classList.remove('done');}
+    else{el.classList.remove('active');el.classList.remove('done');}
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function saveAndContinue(nextStep){
+  var d=collectAllData();
+  if(nextStep===4)buildAssetTabs();
+  saveClientData(d);goTo(nextStep);
+}
+
+function saveAndClose(){
+  var d=collectAllData();saveClientData(d);
+  document.querySelectorAll('input,textarea').forEach(function(el){el.value='';});
+  document.querySelectorAll('select').forEach(function(el){el.selectedIndex=0;});
+  activeAssets={};currentClientId='';childCount=1;beneficiaryCount=1;
+  document.getElementById('header-client-id').textContent='';
+  document.getElementById('client-id-input').value='';
+  loadDashboard();goTo(0);
+  alert('Your progress has been saved. You can resume anytime by entering your Client ID.');
+}
+
+function toggleAsset(type,isYes,btn){
+  activeAssets[type]=isYes;
+  var chkEl=document.getElementById('chk-'+type);
+  var btns=chkEl.querySelectorAll('.toggle-btn');
+  if(isYes){chkEl.classList.add('yes');chkEl.classList.remove('no');btns[0].classList.add('yes-active');btns[1].classList.remove('no-active');}
+  else{chkEl.classList.add('no');chkEl.classList.remove('yes');btns[1].classList.add('no-active');btns[0].classList.remove('yes-active');}
+}
+
+function buildAssetTabs(){
+  var tabsEl=document.getElementById('asset-tabs'),container=document.getElementById('asset-details-container');
+  tabsEl.innerHTML='';container.innerHTML='';
+  var yesAssets=Object.keys(activeAssets).filter(function(k){return activeAssets[k];});
+  if(yesAssets.length===0){container.innerHTML='<div class="note-box">No assets marked as Yes. Go back to the Asset Checklist and mark the assets you have.</div>';return;}
+  yesAssets.forEach(function(type,idx){
+    var config=ASSET_CONFIG[type];if(!config)return;
+    var tab=document.createElement('button');tab.className='asset-tab'+(idx===0?' active':'');tab.textContent=config.label;
+    tab.onclick=(function(t){return function(){switchAssetTab(t);};})(type);tab.id='tab-'+type;tabsEl.appendChild(tab);
+    var section=document.createElement('div');section.className='asset-section'+(idx===0?' active':'');section.id='asset-section-'+type;
+    var listDiv=document.createElement('div');listDiv.id='asset-list-'+type;listDiv.appendChild(buildAssetBlock(type,1));section.appendChild(listDiv);
+    var addBtn=document.createElement('button');addBtn.className='add-btn';addBtn.textContent='+ Add another '+config.label.toLowerCase();
+    addBtn.onclick=(function(t){return function(){addAsset(t);};})(type);section.appendChild(addBtn);container.appendChild(section);
+    if(!assetCounts[type])assetCounts[type]=1;if(idx===0)activeAssetTab=type;
+  });
+}
+
+function buildAssetBlock(type,num){
+  var config=ASSET_CONFIG[type];var block=document.createElement('div');block.className='item-block';
+  var header=document.createElement('div');header.className='item-header';
+  var numSpan=document.createElement('span');numSpan.className='item-num';numSpan.textContent=config.label+' '+num;
+  header.appendChild(numSpan);block.appendChild(header);
+  var fields=config.fields;
+  for(var i=0;i<fields.length;i+=3){
+    var row=document.createElement('div');row.className='g3';
+    for(var j=i;j<Math.min(i+3,fields.length);j++){
+      var fd=document.createElement('div');fd.className='field';
+      var lbl=document.createElement('label');lbl.textContent=fields[j];
+      var inp=document.createElement('input');inp.type='text';inp.placeholder=fields[j];
+      fd.appendChild(lbl);fd.appendChild(inp);row.appendChild(fd);
+    }
+    block.appendChild(row);
+  }
+  return block;
+}
+
+function addAsset(type){
+  if(!assetCounts[type])assetCounts[type]=1;assetCounts[type]++;var n=assetCounts[type];
+  var listEl=document.getElementById('asset-list-'+type);var block=buildAssetBlock(type,n);
+  var rb=document.createElement('button');rb.className='remove-btn';rb.textContent='Remove';rb.onclick=function(){block.remove();};
+  block.querySelector('.item-header').appendChild(rb);listEl.appendChild(block);
+}
+
+function switchAssetTab(type){
+  document.querySelectorAll('.asset-section').forEach(function(s){s.classList.remove('active');});
+  document.querySelectorAll('.asset-tab').forEach(function(b){b.classList.remove('active');});
+  var sec=document.getElementById('asset-section-'+type),tab=document.getElementById('tab-'+type);
+  if(sec)sec.classList.add('active');if(tab)tab.classList.add('active');activeAssetTab=type;
+}
+
+function showAddAssetPrompt(){
+  var options=Object.keys(ASSET_CONFIG).filter(function(k){return !activeAssets[k];});
+  if(options.length===0){alert('All asset types are already added.');return;}
+  var msg='Which asset type to add?\n\n';
+  options.forEach(function(k,i){msg+=(i+1)+'. '+ASSET_CONFIG[k].label+'\n';});
+  var choice=prompt(msg+'\nEnter the number:');if(!choice)return;
+  var idx=parseInt(choice)-1;
+  if(idx>=0&&idx<options.length){activeAssets[options[idx]]=true;buildAssetTabs();switchAssetTab(options[idx]);}
+}
+
+function addChild(){
+  childCount++;var list=document.getElementById('children-list');
+  var clone=list.querySelector('.item-block').cloneNode(true);clone.id='child-'+childCount;
+  clone.querySelector('.item-num').textContent='Child '+childCount;
+  clone.querySelectorAll('input,textarea,select').forEach(function(el){el.value='';if(el.tagName==='SELECT')el.selectedIndex=0;});
+  var rb=document.createElement('button');rb.className='remove-btn';rb.textContent='Remove';rb.onclick=function(){clone.remove();};
+  clone.querySelector('.item-header').appendChild(rb);list.appendChild(clone);
+}
+
+function addBeneficiary(){
+  beneficiaryCount++;var list=document.getElementById('beneficiaries-list');
+  var clone=list.querySelector('.item-block').cloneNode(true);clone.id='bene-'+beneficiaryCount;
+  clone.querySelector('.item-num').textContent='Beneficiary '+beneficiaryCount;
+  clone.querySelectorAll('input,textarea,select').forEach(function(el){el.value='';if(el.tagName==='SELECT')el.selectedIndex=0;});
+  var rb=document.createElement('button');rb.className='remove-btn';rb.textContent='Remove';
+  rb.onclick=function(){clone.remove();updateShareTotal();};
+  clone.querySelector('.item-header').appendChild(rb);list.appendChild(clone);
+  clone.querySelectorAll('input[type=number]').forEach(function(el){el.addEventListener('input',updateShareTotal);});
+}
+
+function updateShareTotal(){
+  var total=0;
+  document.querySelectorAll('#beneficiaries-list .item-block').forEach(function(b){
+    var si=b.querySelector('input[type=number]');if(si&&si.value)total+=parseFloat(si.value)||0;
+  });
+  var bar=document.getElementById('share-total-bar');
+  if(total===0){bar.style.display='none';return;}
+  bar.style.display='block';
+  if(Math.abs(total-100)<0.01){bar.style.background='var(--success-bg)';bar.style.border='1px solid #a8d5b5';bar.style.color='var(--success)';bar.textContent='Total share: 100% -- All accounted for';}
+  else if(total<100){bar.style.background='var(--warning-bg)';bar.style.border='1px solid #f0c040';bar.style.color='var(--warning)';bar.textContent='Total share: '+total.toFixed(1)+'% -- '+(100-total).toFixed(1)+'% still unallocated';}
+  else{bar.style.background='var(--danger-bg)';bar.style.border='1px solid #f5b8b2';bar.style.color='var(--danger)';bar.textContent='Total share: '+total.toFixed(1)+'% -- exceeds 100% by '+(total-100).toFixed(1)+'%';}
+}
+document.querySelectorAll('#beneficiaries-list input[type=number]').forEach(function(el){el.addEventListener('input',updateShareTotal);});
+
+function v(id){var el=document.getElementById(id);return el?el.value.trim():'';}
+
+function showSummary(){
+  var data=collectAllData();data.complete=true;saveClientData(data);goTo(8);
+  document.getElementById('summary-client-id').textContent=currentClientId;
+  document.getElementById('summary-date').textContent=new Date().toLocaleDateString('en-IN',{weekday:'long',day:'2-digit',month:'long',year:'numeric'})+' -- '+new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+  document.getElementById('setup-banner').style.display=localStorage.getItem('sarthi_script_url')?'none':'block';
+  buildScorecard();buildPendingList();buildWAMessage();buildFullSummary();
+}
+
+function buildScorecard(){
+  var sc=document.getElementById('scorecard');sc.innerHTML='';
+  var sections=[
+    {name:'Personal details',check:function(){return v('p_name')&&v('p_mobile');}},
+    {name:'Family structure',check:function(){return v('f_marital');}},
+    {name:'Asset checklist',check:function(){return Object.keys(activeAssets).length>0;}},
+    {name:'Asset details',check:function(){
+      var yes=Object.keys(activeAssets).filter(function(k){return activeAssets[k];});
+      if(yes.length===0)return null;
+      var filled=yes.filter(function(type){
+        var listEl=document.getElementById('asset-list-'+type);if(!listEl)return false;
+        return Array.from(listEl.querySelectorAll('input,textarea,select')).some(function(inp){return inp.value.trim();});
+      });
+      return filled.length===yes.length?true:(filled.length>0?'partial':false);
+    }},
+    {name:'Beneficiaries',check:function(){
+      var blocks=document.querySelectorAll('#beneficiaries-list .item-block');
+      return blocks.length>0&&blocks[0].querySelector('input')&&blocks[0].querySelector('input').value.trim();
+    }},
+    {name:'Executor',check:function(){return v('ex_name');}},
+    {name:'Witnesses',check:function(){return v('w1_name')&&v('w2_name');}}
+  ];
+  sections.forEach(function(s){
+    var result=s.check();
+    var cls=result===true?'complete':(result==='partial'?'partial':'empty');
+    var statusText=result===true?'Complete':(result==='partial'?'Partially filled':'Not filled');
+    var item=document.createElement('div');item.className='score-item '+cls;
+    item.innerHTML='<div class="score-section-name">'+s.name+'</div><div class="score-status">'+statusText+'</div>';
+    sc.appendChild(item);
+  });
+}
+
+function buildPendingList(){
+  var container=document.getElementById('pending-container');container.innerHTML='';
+  var pending=[];
+  if(!v('p_name'))pending.push('Your full name');
+  if(!v('p_pan'))pending.push('Your PAN number');
+  if(!v('p_aadhaar'))pending.push('Your Aadhaar number');
+  if(!v('p_mobile'))pending.push('Your mobile number');
+  if(!v('p_address'))pending.push('Your permanent address');
+  if(!v('f_marital'))pending.push('Marital status');
+  if(v('f_marital')==='Married'&&!v('f_spouse'))pending.push('Spouse name');
+  Object.keys(activeAssets).filter(function(k){return activeAssets[k];}).forEach(function(type){
+    var listEl=document.getElementById('asset-list-'+type);
+    if(!listEl){pending.push(ASSET_CONFIG[type].label+' details not filled');return;}
+    if(!Array.from(listEl.querySelectorAll('input,textarea,select')).some(function(inp){return inp.value.trim();}))
+      pending.push(ASSET_CONFIG[type].label+' -- details not yet filled');
+  });
+  var blocks=document.querySelectorAll('#beneficiaries-list .item-block');
+  if(blocks.length===0||!blocks[0].querySelector('input').value.trim())pending.push('At least one beneficiary name');
+  if(!v('ex_name'))pending.push('Primary executor name');
+  if(!v('w1_name'))pending.push('Witness 1 name');
+  if(!v('w2_name'))pending.push('Witness 2 name');
+  if(pending.length===0){
+    var div=document.createElement('div');div.style.cssText='background:var(--success-bg);border:1px solid #a8d5b5;border-radius:8px;padding:14px 18px;margin-bottom:16px;font-size:13px;color:var(--success);';
+    div.textContent='All key information has been filled. Your interview is ready to be submitted to Sarthi.';container.appendChild(div);return;
+  }
+  var section=document.createElement('div');section.className='pending-section';
+  section.innerHTML='<div class="pending-title">Information still needed ('+pending.length+' items)</div>';
+  pending.forEach(function(item){var row=document.createElement('div');row.className='pending-item';row.innerHTML='<span class="pending-dot">&#8250;</span><span>'+item+'</span>';section.appendChild(row);});
+  container.appendChild(section);
+}
+
+function buildWAMessage(){
+  var container=document.getElementById('wa-container');container.innerHTML='';
+  var followup=v('sw_followup');if(!followup)return;
+  var clientName=v('p_name')||'Sir / Madam';
+  var firstName=clientName.replace(/^(Mr\.|Mrs\.|Ms\.|Dr\.)\s*/i,'').split(' ')[0];
+  var msg='Dear '+firstName+'ji,\n\nThank you for completing your will interview with Sarthi Estate and Legacy Partners.\n\nYou had noted the following items to follow up on:\n\n'+followup+'\n\nKindly share these documents at your earliest convenience. You may WhatsApp them directly to us.\n\nWarm regards,\nSarthi Estate and Legacy Partners\n92515 95279';
+  var section=document.createElement('div');section.className='wa-section';
+  section.innerHTML='<div class="wa-title">Your follow-up note (for reference)</div><div class="wa-message" id="wa-msg-text">'+msg+'</div><button class="wa-copy-btn" onclick="copyWAMessage()">Copy message</button>';
+  container.appendChild(section);
+}
+function copyWAMessage(){
+  var el=document.getElementById('wa-msg-text');if(!el)return;
+  navigator.clipboard.writeText(el.textContent).then(function(){var btn=document.querySelector('.wa-copy-btn');btn.textContent='Copied!';setTimeout(function(){btn.textContent='Copy message';},2000);});
+}
+
+function buildFullSummary(){
+  var html='';
+  html+=buildSection('Personal Details',[
+    ['Full name',v('p_name')],['Age',v('p_age')],['Date of birth',v('p_dob')],['Father / husband',v('p_parent')],
+    ['PAN',v('p_pan')],['Aadhaar',v('p_aadhaar')],['Address',v('p_address')],['Mobile',v('p_mobile')],['Alternate mobile',v('p_mobile2')],['Email',v('p_email')]
+  ]);
+  var famRows=[['Marital status',v('f_marital')],['Spouse name',v('f_spouse')],['Spouse age',v('f_spouse_age')],['Spouse PAN / Aadhaar',v('f_spouse_pan')]];
+  document.querySelectorAll('#children-list .item-block').forEach(function(c,i){
+    var inp=c.querySelectorAll('input,select');var name=inp[0]?inp[0].value.trim():'';
+    if(name){
+      famRows.push(['Child '+(i+1),name+(inp[1]?' | Age: '+inp[1].value:'')+(inp[2]?' | '+inp[2].value:'')+(inp[6]?' | '+inp[6].value:'')]);
+      if(inp[4]&&inp[4].value)famRows.push(['Child '+(i+1)+' PAN / Aadhaar',inp[4].value]);
+      if(inp[5]&&inp[5].value)famRows.push(['Child '+(i+1)+' mobile',inp[5].value]);
+    }
+  });
+  famRows.push(['Other dependants',v('f_dependants')],['Minor beneficiaries',v('f_minors')],['Family notes',v('f_complications')]);
+  html+=buildSection('Family Structure',famRows);
+  var yesAssets=Object.keys(activeAssets).filter(function(k){return activeAssets[k];}).map(function(k){return ASSET_CONFIG[k]?ASSET_CONFIG[k].label:k;});
+  var noAssets=Object.keys(activeAssets).filter(function(k){return !activeAssets[k];}).map(function(k){return ASSET_CONFIG[k]?ASSET_CONFIG[k].label:k;});
+  html+=buildSection('Asset Checklist',[['Assets declared',yesAssets.join(', ')||'--'],['Assets not held',noAssets.join(', ')||'--']]);
+  Object.keys(activeAssets).forEach(function(type){
+    if(!activeAssets[type])return;var config=ASSET_CONFIG[type];if(!config)return;
+    var listEl=document.getElementById('asset-list-'+type);if(!listEl)return;
+    var blocks=listEl.querySelectorAll('.item-block'),blockRows=[];
+    blocks.forEach(function(b,idx){
+      var inp=b.querySelectorAll('input,textarea,select'),hasData=false,rows=[];
+      config.fields.forEach(function(f,fi){var val=inp[fi]?inp[fi].value.trim():'';if(val){hasData=true;rows.push([f,val]);}});
+      if(hasData)blockRows.push({num:idx+1,rows:rows});
+    });
+    if(blockRows.length){
+      html+='<div class="summary-section" style="margin-bottom:14px;"><div class="summary-section-title">'+config.label+'</div><table class="summary-table">';
+      blockRows.forEach(function(br){
+        html+='<tr class="summary-sub-header"><td colspan="2">'+config.label+' '+br.num+'</td></tr>';
+        br.rows.forEach(function(r){html+='<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>';});
+      });
+      html+='</table></div>';
+    }
+  });
+  var beneRows=[];
+  document.querySelectorAll('#beneficiaries-list .item-block').forEach(function(b,i){
+    var inp=b.querySelectorAll('input,select');var name=inp[0]?inp[0].value.trim():'';
+    if(name){
+      beneRows.push(['Beneficiary '+(i+1),name+(inp[1]&&inp[1].value?' | '+inp[1].value:'')+(inp[2]&&inp[2].value?' | Share: '+inp[2].value+'%':'')]);
+      if(inp[3]&&inp[3].value)beneRows.push(['PAN / Aadhaar',inp[3].value]);
+      if(inp[6]&&inp[6].value)beneRows.push(['Specific assets',inp[6].value]);
+      if(inp[7]&&inp[7].value)beneRows.push(['Conditions',inp[7].value]);
+    }
+  });
+  html+=buildSection('Beneficiaries',beneRows);
+  html+=buildSection('Executor & Witnesses',[
+    ['Primary executor',v('ex_name')],['Relationship',v('ex_rel')],['Mobile',v('ex_mobile')],['PAN / Aadhaar',v('ex_pan')],['Address',v('ex_address')],
+    ['Alternate executor',v('alt_name')],['Alt. relationship',v('alt_rel')],
+    ['Witness 1',v('w1_name')],['W1 mobile',v('w1_mobile')],['W1 ID',v('w1_id')],['W1 address',v('w1_address')],
+    ['Witness 2',v('w2_name')],['W2 mobile',v('w2_mobile')],['W2 ID',v('w2_id')],['W2 address',v('w2_address')],
+    ['Guardian',v('guardian_name')],['Guardian relationship',v('guardian_rel')]
+  ]);
+  html+=buildSection('Special Wishes & Notes',[
+    ['Last rites',v('sw_rites')],['Care of dependants',v('sw_care')],['Charitable donations',v('sw_charity')],
+    ['Personal belongings',v('sw_personal')],['Outstanding loans',v('sw_loans')],['Amounts receivable',v('sw_receivable')],
+    ['Additional notes',v('sw_other')],['Documents to follow up',v('sw_followup')]
+  ]);
+  document.getElementById('summary-output').innerHTML=html||'<p style="color:var(--text-muted);font-size:13px;">No information entered.</p>';
+}
+
+function buildSection(title,rows){
+  var filtered=rows.filter(function(r){return r[1];});if(!filtered.length)return '';
+  var h='<div class="summary-section" style="margin-bottom:14px;"><div class="summary-section-title">'+title+'</div><table class="summary-table">';
+  filtered.forEach(function(r){h+='<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>';});
+  return h+'</table></div>';
+}
+
+function saveScriptUrl(){
+  var url=document.getElementById('script-url-input').value.trim();
+  if(!url){alert('Please paste the Script URL.');return;}
+  localStorage.setItem('sarthi_script_url',url);
+  document.getElementById('setup-banner').style.display='none';
+  alert('Connected successfully. You can now submit to Sarthi.');
+}
+
+function saveToSheet(){
+  var scriptUrl=localStorage.getItem('sarthi_script_url');
+  if(!scriptUrl){document.getElementById('setup-banner').style.display='block';alert('Please enter your Google Apps Script URL first.');return;}
+  var btn=document.querySelector('.save-sheet-btn'),msg=document.getElementById('status-msg');
+  btn.textContent='Submitting...';msg.style.display='none';
+  var d=collectAllData();
+  var yesAssets=Object.keys(activeAssets).filter(function(k){return activeAssets[k];}).map(function(k){return ASSET_CONFIG[k]?ASSET_CONFIG[k].label:k;});
+  var beneNames=[];
+  document.querySelectorAll('#beneficiaries-list .item-block').forEach(function(b){
+    var inp=b.querySelectorAll('input,select');if(inp[0]&&inp[0].value.trim())beneNames.push(inp[0].value.trim()+(inp[2]&&inp[2].value?' ('+inp[2].value+'%)':''));
+  });
+  var payload={
+    client_id:currentClientId,interview_date:new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'}),
+    interview_time:new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}),status:'Client Submitted',
+    full_name:v('p_name'),age:v('p_age'),dob:v('p_dob'),parent:v('p_parent'),pan:v('p_pan'),aadhaar:v('p_aadhaar'),
+    address:v('p_address'),mobile:v('p_mobile'),mobile2:v('p_mobile2'),email:v('p_email'),
+    marital:v('f_marital'),spouse:v('f_spouse'),spouse_age:v('f_spouse_age'),spouse_pan:v('f_spouse_pan'),
+    assets_declared:yesAssets.join(', '),beneficiaries:beneNames.join(' | '),
+    executor:v('ex_name'),executor_rel:v('ex_rel'),executor_mobile:v('ex_mobile'),
+    alt_executor:v('alt_name'),witness1:v('w1_name'),witness2:v('w2_name'),
+    loans:v('sw_loans'),notes:v('sw_other'),followup:v('sw_followup'),full_data:JSON.stringify(d)
+  };
+  fetch(scriptUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(){
+      btn.textContent='Submitted';msg.textContent='Your information has been submitted to Sarthi successfully.';
+      msg.className='status-msg success';msg.style.display='block';
+      setTimeout(function(){btn.textContent='Submit to Sarthi';},4000);
+    }).catch(function(){
+      btn.textContent='Submit to Sarthi';msg.textContent='Could not submit. Please check your connection or contact Sarthi.';
+      msg.className='status-msg error';msg.style.display='block';
+    });
+}
+
+function copySummary(){
+  var sections=document.querySelectorAll('#summary-output .summary-section');
+  var text='SARTHI ESTATE AND LEGACY PARTNERS\nWill Interview Summary\nClient ID: '+currentClientId+'\n'+document.getElementById('summary-date').textContent+'\n\n';
+  sections.forEach(function(s){
+    text+=s.querySelector('.summary-section-title').textContent.toUpperCase()+'\n';
+    s.querySelectorAll('tr:not(.summary-sub-header)').forEach(function(r){var cells=r.querySelectorAll('td');if(cells.length===2)text+='  '+cells[0].textContent+': '+cells[1].textContent+'\n';});
+    text+='\n';
+  });
+  navigator.clipboard.writeText(text).then(function(){var btn=document.querySelector('.copy-btn');btn.textContent='Copied!';setTimeout(function(){btn.textContent='Copy summary';},2000);});
+}
+
+function startNew(){
+  if(!confirm('Start a new interview? Current data is already saved.'))return;
+  document.querySelectorAll('input,textarea').forEach(function(el){el.value='';});
+  document.querySelectorAll('select').forEach(function(el){el.selectedIndex=0;});
+  activeAssets={};currentClientId='';childCount=1;beneficiaryCount=1;
+  document.getElementById('header-client-id').textContent='';document.getElementById('client-id-input').value='';
+  loadDashboard();goTo(0);
+}
+</script>
+</body>
+</html>
